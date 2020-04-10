@@ -155,12 +155,11 @@
       
 </template>
 <script>
- import {Swipe, SwipeItem} from 'mint-ui'
+import { MessageBox } from 'mint-ui'
  import 'mint-ui/lib/style.css'
  export default {
  components: {
-  'mt-swipe': Swipe,
-  'mt-swipe-item': SwipeItem
+  
  },
  
  data () {
@@ -191,6 +190,7 @@
   },
   created () {  
     this.play()  
+     MessageBox('提示', '生命周期加载完成');
   },
   // 轮播
 //  methods:{
