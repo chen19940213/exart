@@ -3,12 +3,12 @@
  <div >
    <!-- banner1 -->
   <div class="headerImg" >
-    <div class="header"></div>
-<!-- <div class="banner1">
+
+<div class="banner1">
              <div v-for="(imgUrl, index) in bannerList" v-show="index===mark" :key="index" class="slideshow">
                      <img :src=imgUrl>
              </div>
-    </div> -->
+    </div> 
 <!-- <mt-swipe :auto="2000" >
   <mt-swipe-item >
          <img src="../assets/img/banner1.png" alt="logo" class="img1" />
@@ -212,9 +212,8 @@
  }
 </script>
 <style scoped>
-.headerImg .header{
+.headerImg .banner1 img{
   width:100vw;
 height:191px;
-background: red;
 }
 </style>
