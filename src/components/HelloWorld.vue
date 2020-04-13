@@ -1,6 +1,6 @@
 <template>
  
- <div >
+ <div  style="max-width:100vw">
    <!-- banner1 -->
   <div class="headerImg" >
 
