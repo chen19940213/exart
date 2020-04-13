@@ -103,11 +103,11 @@
         <div class="contactinfo">
            <p>中山市鸿臣电子塑料有限公司</p>
            <p>联系人：李先生</p>
-           <p>固 话：（070）22230669</p>
-           <p>电 话：18948858136</p>
-           <p>Q Q： 1398577897</p>
+           <p>固&emsp;话：（070）22230669</p>
+           <p>电&emsp;话：18948858136</p>
+           <p>Q&emsp;Q ： 1398577897</p>
            <div class="contactinfoAddress">
-           <p>地 址：</p><p>中山市小榄镇绩东一民安南路137号亿利 B楼四楼 </p>
+           <p>地&emsp;址：</p><p>中山市小榄镇绩东一民安南路137号亿利 B楼四楼 </p>
            </div>
         </div>
          <!-- {/* submit2 */} -->
@@ -129,7 +129,7 @@
              </div>
         </div>
       <!-- {/* callphone2 */} -->
-      <div class="callphone">
+      <div class="callphone2" >
       <a href="tel:076022230669">
         <img src="../assets/img/contact1.png" alt=""/>
         </a>
@@ -227,8 +227,11 @@ import { MessageBox } from 'mint-ui'
 <style scoped>
 .all{
   overflow: hidden;
-  max-width: 600px;
- padding-bottom: 50px;
+  max-width: 430px;
+  margin: 0 auto;
+  height: 100%;
+ padding-bottom: 10px;
+ box-shadow:0px 0px 5px #888888 ;
    /* margin: 0 auto;
   position: absolute;
   top: 50%;
@@ -236,17 +239,18 @@ import { MessageBox } from 'mint-ui'
   transform: translate(-50%,-50%); */
 }
 .all img{
-  max-width: 600px;
+  max-width: 430px;
   
 }
 /* banner1 */
 .header .banner1 img{
   width:100vw;
-height:191px;
+height:189px;
 }
 .header .headerImg{
    width:100vw;
 height:247px;
+margin-top:-42px;
 }
 /* submit1 */
 .submit {
@@ -260,6 +264,7 @@ color:rgba(51,51,51,1);
 display: flex;
 justify-content: center;
 align-items: center;
+font-weight: 800;
 }
 .submit input{
   -webkit-appearance: none;
@@ -381,6 +386,15 @@ text-align: center;
 /* callphone */
 .callphone {
   padding: 0 15px;
+}
+.callphone2 img{
+  width:345px;
+height:40px;
+position: fixed;
+bottom: 50px;
+left: 0;
+right: 0;
+margin: 0 auto;
 }
 .callphone img{
   width:100%;
