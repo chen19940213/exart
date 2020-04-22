@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import 'lib-flexible/flexible'
 import Axios from 'axios'
+import './components/instruct'
 // import $ from "jquery"
 // import VueResource from 'vue-resource'
 // Vue.use(VueResource)

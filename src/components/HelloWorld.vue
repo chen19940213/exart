@@ -17,8 +17,8 @@
     <!-- {/* submit */} -->
     <div class="submit">
       <div>立即获取产品报价</div>
-      <input type="text" placeholder="请输入姓名" v-model="name" />
-      <input type="number" placeholder="请输入手机号（必填）" v-model="phone" />
+      <input type="text" placeholder="请输入姓名" v-model="name" v-iosbugfixed />
+      <input type="number" placeholder="请输入手机号（必填）" v-model="phone" v-iosbugfixed />
       <button @click="uploadInfo">免费获取</button>
     </div>
     <!-- {/* banner2 */} -->
@@ -70,7 +70,7 @@
     <ul class="productinfo">
       <li>
         <div>
-          <img src="../assets/img/product2.png" alt />
+          <img src="../assets/img/product1.png" alt />
           <p>显示板线材</p>
         </div>
         <div>
@@ -140,8 +140,8 @@
     <!-- {/* submit2 */} -->
     <div class="submit">
       <div>立即获取产品报价</div>
-      <input type="text" placeholder="请输入姓名" v-model="name" />
-      <input type="number" placeholder="请输入手机号（必填）" v-model="phone" />
+      <input type="text" placeholder="请输入姓名" v-model="name" v-iosbugfixed />
+      <input type="number" placeholder="请输入手机号（必填）" v-model="phone" v-iosbugfixed />
       <button @click="uploadInfo">免费获取</button>
     </div>
 
@@ -168,7 +168,7 @@
     <!-- {/* callphone2 */} -->
     <div class="callphone2">
       <a href="tel:076022230669">
-        <img src="../assets/img/contact1.png" alt />
+        <img src="../assets/img/contact2.png" alt />
       </a>
     </div>
   </div>
@@ -216,31 +216,28 @@ export default {
   // 轮播
   methods: {
     uploadInfo() {
-      var _this = this
+      var _this = this;
       this.$http({
         method: "post",
-         url: "https://www.coolship.vip/ship/api/index/addUserInfo",
-        headers:{'Content-Type': 'application/x-www-form-urlencoded'}, 
-        data: { name: _this.name, phone: _this.phone},
-          transformRequest: function(obj) {  
-        var str = [];  
-        for(var p in obj){  
-            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));  
-        }  
-        return str.join("&");  
-    }  
-      })
-        .then(
-          function(res) {
-            console.log(res)
-            if(res.data.status==200){
- MessageBox('提示', '资格获取成功，请等待工作人员联系');
-            }else{
- MessageBox('提示', '资格获取失败，'+res.data.message);
-
-            }
+        url: "https://www.coolship.vip/ship/api/index/addUserInfo",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        data: { name: _this.name, phone: _this.phone },
+        transformRequest: function(obj) {
+          var str = [];
+          for (var p in obj) {
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
           }
-        )
+          return str.join("&");
+        }
+      })
+        .then(function(res) {
+          console.log(res);
+          if (res.data.status == 200) {
+            MessageBox("提示", "请耐心等待，24小时内客服会联系您");
+          } else {
+            MessageBox("提示", "资格获取失败，" + res.data.message);
+          }
+        })
         .catch(function(error) {
           console.log(error);
         });
@@ -260,7 +257,6 @@ export default {
   },
   created() {
     this.play();
-   
   }
 };
 </script>
@@ -270,7 +266,7 @@ export default {
   max-width: 430px;
   margin: 0 auto;
   height: 100%;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   box-shadow: 0px 0px 5px #888888;
   /* margin: 0 auto;
   position: absolute;
@@ -430,7 +426,7 @@ export default {
   width: 345px;
   height: 40px;
   position: fixed;
-  bottom: 0;
+  bottom: 30px;
   left: 0;
   right: 0;
   margin: 0 auto;
