@@ -1,175 +1,190 @@
 <template>
-  <div class="all">
-    <!-- banner1 -->
-    <div class="header">
-      <div class="banner1">
+  <div>
+    <div class="all">
+      <!-- banner1 -->
+      <div class="header">
+        <div class="banner1">
+          <div
+            v-for="(imgUrl, index) in bannerList"
+            v-show="index===mark"
+            :key="index"
+            class="slideshow"
+          >
+            <img :src="imgUrl" />
+          </div>
+        </div>
+        <img src="../assets/img/header.png" alt="logo" class="headerImg" />
+      </div>
+      <!-- {/* submit */} -->
+      <div class="submit">
+        <div>立即获取产品报价</div>
+        <input type="text" placeholder="请输入姓名" v-model="name" v-iosbugfixed />
+        <input type="number" placeholder="请输入手机号（必填）" v-model="phone" v-iosbugfixed />
+        <button @click="uploadInfo">免费获取</button>
+      </div>
+      <!-- {/* banner2 */} -->
+
+      <div class="banner2">
         <div
-          v-for="(imgUrl, index) in bannerList"
+          v-for="(item, index) in bannerList2"
           v-show="index===mark"
           :key="index"
-          class="slideshow"
+          class="bannerinfo"
         >
-          <img :src="imgUrl" />
+          <div>
+            <img img src="../assets/img/inform.png" alt />
+            <p>{{item.addressName}}</p>
+          </div>
+
+          <p>{{item.addressPhone}}</p>
+          <p>
+            {{item.addressTime}}
+            <span>分钟前</span>
+          </p>
         </div>
       </div>
-      <img src="../assets/img/header.png" alt="logo" class="headerImg" />
-    </div>
-    <!-- {/* submit */} -->
-    <div class="submit">
-      <div>立即获取产品报价</div>
-      <input type="text" placeholder="请输入姓名" v-model="name" v-iosbugfixed />
-      <input type="number" placeholder="请输入手机号（必填）" v-model="phone" v-iosbugfixed />
-      <button @click="uploadInfo">免费获取</button>
-    </div>
-    <!-- {/* banner2 */} -->
 
-    <div class="banner2">
-      <div
-        v-for="(item, index) in bannerList2"
-        v-show="index===mark"
-        :key="index"
-        class="bannerinfo"
-      >
-        <div>
-          <img img src="../assets/img/inform.png" alt />
-          <p>{{item.addressName}}</p>
-        </div>
-
-        <p>{{item.addressPhone}}</p>
-        <p>
-          {{item.addressTime}}
-          <span>分钟前</span>
-        </p>
+      <!-- {/* info */} -->
+      <div class="infotop">
+        <img src="../assets/img/left.png" alt />
+        <span>公司简介</span>
+        <img src="../assets/img/right.png" alt />
       </div>
-    </div>
-
-    <!-- {/* info */} -->
-    <div class="infotop">
-      <img src="../assets/img/left.png" alt />
-      <span>公司简介</span>
-      <img src="../assets/img/right.png" alt />
-    </div>
-    <div class="infocon">
-      <div>中山市鸿臣电子塑料有限公司创建于2011年，位于广东省中山市北部的著名经济强镇小榄镇，是一家集生产、加工、销售、服务于一体的私营企业，拥有完整、科学的质量管理体系。生产业务以专用线束生产和注塑加工为主。其主要应用于家用电器、汽车电子、玩具等产品。</div>
-      <div>公司秉承“品质第一，服务至上”的经营理念，坚持“客户第一”的原则，为广大客户提供优质的服务；以严格的品质要求，为客户提供最优质的产品服务；以稳固、发展、高新、团结和创新的精神，尊重人才，注重技术。</div>
-      <div>经过9年多的努力和发展，现今已具有一定的规模和实力，拥有一支朝气蓬勃，技术过硬且创新敬业的新生代高素质人才队伍。依靠良好的信誉和技术优势，取得了用户的一致好评及同行的共同认可。</div>
-      <div>未来，鸿臣将一如既往地提供精准服务和精准交付的高质产品，服务所有客户，帮助客户完成价值，与客户共同创业，共享成果。</div>
-    </div>
-    <!-- {/* infoimg */} -->
-    <div class="infoimg">
-      <img src="../assets/img/infoimg1.png" alt />
-      <img src="../assets/img/infoimg2.png" alt />
-    </div>
-    <!-- {/* product */} -->
-    <div class="infotop">
-      <img src="../assets/img/left.png" alt />
-      <span>产品展示</span>
-      <img src="../assets/img/right.png" alt />
-    </div>
-    <!-- {/* productinfo */} -->
-    <ul class="productinfo">
-      <li>
+      <div class="infocon">
         <div>
-          <img src="../assets/img/product1.png" alt />
-          <p>显示板线材</p>
+          中山市鸿臣电子塑料有限公司创建于2011年，位于广东省中山市北部的著名经济强镇小榄镇，是一家集生产、加工、销售、服务
+          于一体的私营企业，拥有完整、科学的质量管理体系。生产业务以专用线束生产和注塑加工为主。其主要应用于家用电器、汽车电子、玩具等
+          产品。
         </div>
         <div>
-          <img src="../assets/img/product2.png" alt />
-          <p>通信线</p>
-        </div>
-      </li>
-
-      <li>
-        <div>
-          <img src="../assets/img/product3.png" alt />
-          <p>声控板线材</p>
+          公司秉承“品质第一，服务至上”的经营理念，坚持“客户第一”的原则，为广大客户提供优质的服务；以严格的品质要求，为
+          客户提供最优质的产品服务；以稳固、发展、高新、团结和创新的精神，尊重人才，注重技术。
         </div>
         <div>
-          <img src="../assets/img/product4.png" alt />
-          <p>驱动板线材</p>
-        </div>
-      </li>
-
-      <li>
-        <div>
-          <img src="../assets/img/product5.png" alt />
-          <p>开关连接线</p>
+          经过9年多的努力和发展，现今已具有一定的规模和实力，拥有一支朝气蓬勃，技术过硬且创新敬业的新生代高素质人才队伍。依
+          靠良好的信誉和技术优势，取得了用户的一致好评及同行的共同认可。
         </div>
         <div>
-          <img src="../assets/img/product6.png" alt />
-          <p>火线反馈线</p>
+          未来，鸿臣将一如既往地提供精准服务和精准交付的高质产品，服务所有客户，帮助客户完成价值，与客户共同创业，共享成果
+          。
         </div>
-      </li>
-
-      <li>
-        <div>
-          <img src="../assets/img/product7.png" alt />
-          <p>点火器配套线</p>
-        </div>
-        <div>
-          <img src="../assets/img/product8.png" alt />
-          <p>比列阀连接线</p>
-        </div>
-      </li>
-    </ul>
-    <!-- {/* callphone */} -->
-    <div class="callphone">
-      <a href="tel:076022230669">
-        <img src="../assets/img/contact1.png" alt />
-      </a>
-    </div>
-    <!-- {/* address */} -->
-
-    <div class="infotop">
-      <img src="../assets/img/left.png" alt />
-      <span>联系我们</span>
-      <img src="../assets/img/right.png" alt />
-    </div>
-    <!-- {/* contactinfo */} -->
-    <div class="contactinfo">
-      <p>中山市鸿臣电子塑料有限公司</p>
-      <p>联系人：李先生</p>
-      <p>固&emsp;话：（070）22230669</p>
-      <p>电&emsp;话：18948858136</p>
-      <p>Q&emsp;Q ： 1398577897</p>
-      <div class="contactinfoAddress">
-        <p>地&emsp;址：</p>
-        <p>中山市小榄镇绩东一民安南路137号亿利 B楼四楼</p>
       </div>
-    </div>
-    <!-- {/* submit2 */} -->
-    <div class="submit">
-      <div>立即获取产品报价</div>
-      <input type="text" placeholder="请输入姓名" v-model="name" v-iosbugfixed />
-      <input type="number" placeholder="请输入手机号（必填）" v-model="phone" v-iosbugfixed />
-      <button @click="uploadInfo">免费获取</button>
-    </div>
-
-    <!-- {/* banner3 */} -->
-    <div class="banner2" style="margin-bottom:61px">
-      <div
-        v-for="(item, index) in bannerList2"
-        v-show="index===mark"
-        :key="index"
-        class="bannerinfo"
-      >
-        <div>
-          <img img src="../assets/img/inform.png" alt />
-          <p>{{item.addressName}}</p>
-        </div>
-
-        <p>{{item.addressPhone}}</p>
-        <p>
-          {{item.addressTime}}
-          <span>分钟前</span>
-        </p>
+      <!-- {/* infoimg */} -->
+      <div class="infoimg">
+        <img src="../assets/img/infoimg1.png" alt />
+        <img src="../assets/img/infoimg2.png" alt />
       </div>
-    </div>
-    <!-- {/* callphone2 */} -->
-    <div class="callphone2">
-      <a href="tel:076022230669">
-        <img src="../assets/img/contact2.png" alt />
-      </a>
+      <!-- {/* product */} -->
+      <div class="infotop">
+        <img src="../assets/img/left.png" alt />
+        <span>产品展示</span>
+        <img src="../assets/img/right.png" alt />
+      </div>
+      <!-- {/* productinfo */} -->
+      <ul class="productinfo">
+        <li>
+          <div>
+            <img src="../assets/img/product1.png" alt />
+            <p>显示板线材</p>
+          </div>
+          <div>
+            <img src="../assets/img/product2.png" alt />
+            <p>通信线</p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <img src="../assets/img/product3.png" alt />
+            <p>声控板线材</p>
+          </div>
+          <div>
+            <img src="../assets/img/product4.png" alt />
+            <p>驱动板线材</p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <img src="../assets/img/product5.png" alt />
+            <p>开关连接线</p>
+          </div>
+          <div>
+            <img src="../assets/img/product6.png" alt />
+            <p>火线反馈线</p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <img src="../assets/img/product7.png" alt />
+            <p>点火器配套线</p>
+          </div>
+          <div>
+            <img src="../assets/img/product8.png" alt />
+            <p>比列阀连接线</p>
+          </div>
+        </li>
+      </ul>
+      <!-- {/* callphone */} -->
+      <div class="callphone">
+        <a href="tel:076022230669">
+          <img src="../assets/img/contact1.png" alt />
+        </a>
+      </div>
+      <!-- {/* address */} -->
+
+      <div class="infotop">
+        <img src="../assets/img/left.png" alt />
+        <span>联系我们</span>
+        <img src="../assets/img/right.png" alt />
+      </div>
+      <!-- {/* contactinfo */} -->
+      <div class="contactinfo">
+        <p>中山市鸿臣电子塑料有限公司</p>
+        <p>联系人：李先生</p>
+        <p>固&emsp;话：（0760）22230669</p>
+        <p>电&emsp;话：18948858136</p>
+        <p>Q&emsp;Q ： 676162291</p>
+        <div class="contactinfoAddress">
+          <p>地&emsp;址：</p>
+          <p>中山市小榄镇绩东一民安南路137号亿利 B楼四楼</p>
+        </div>
+      </div>
+      <!-- {/* submit2 */} -->
+      <div class="submit">
+        <div>立即获取产品报价</div>
+        <input type="text" placeholder="请输入姓名" v-model="name" v-iosbugfixed />
+        <input type="number" placeholder="请输入手机号（必填）" v-model="phone" v-iosbugfixed />
+        <button @click="uploadInfo">免费获取</button>
+      </div>
+
+      <!-- {/* banner3 */} -->
+      <div class="banner2" style="margin-bottom:61px">
+        <div
+          v-for="(item, index) in bannerList2"
+          v-show="index===mark"
+          :key="index"
+          class="bannerinfo"
+        >
+          <div>
+            <img img src="../assets/img/inform.png" alt />
+            <p>{{item.addressName}}</p>
+          </div>
+
+          <p>{{item.addressPhone}}</p>
+          <p>
+            {{item.addressTime}}
+            <span>分钟前</span>
+          </p>
+        </div>
+      </div>
+      <!-- {/* callphone2 */} -->
+      <div class="callphone2">
+        <a href="tel:076022230669">
+          <img src="../assets/img/contact2.png" alt />
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -446,14 +461,14 @@ export default {
   color: rgba(51, 51, 51, 1);
   margin-top: 10px;
 }
-.contactinfo div {
+.contactinfo .contactinfoAddress {
   display: flex;
   align-items: flex-start;
 }
-.contactinfo div p:nth-child(1) {
-  width: 69px;
+.contactinfo .contactinfoAddress p:nth-child(1) {
+  width: 90px;
 }
-.contactinfo div p:nth-child(2) {
+.contactinfo .contactinfoAddress p:nth-child(2) {
   line-height: 21px;
 }
 .contactinfo > p:nth-child(2) {
