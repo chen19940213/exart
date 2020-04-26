@@ -82,6 +82,7 @@ section,
 summary,
 time,
 mark,
+input,
 audio,
 video {
     box-sizing: border-box;
@@ -156,4 +157,7 @@ button {
 
 .mt-swipe {
     height: 100px !important;
+}
+.mint-msgbox-confirm{
+    font-size: 26px !important;
 }
